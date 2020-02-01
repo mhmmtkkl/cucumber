@@ -1,5 +1,5 @@
 Feature: Creating Citizenship
-
+@SmokeTest
   Scenario: Citizenship creation
 
     Given navigate to website

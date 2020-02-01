@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -26,6 +27,7 @@ public abstract class AbstractPage {
         try{
             waitUntilClickable(elementToClick);
             elementToClick.click();
+            Reporter.log( "Clicking on element "+elementToClick.toString(), true);
         }catch(Exception e){
             System.out.println(elementToClick + " not able to click this element");
               Assert.fail();
@@ -38,6 +40,7 @@ public abstract class AbstractPage {
         try{
             waitVisibility(sendKeysElement);
             sendKeysElement.sendKeys(value);
+            Reporter.log( "Sending a value "+ value +  "on element ", true);
         }catch (Exception e){
 
             System.out.println(sendKeysElement + " not able to wait until this element");
@@ -51,7 +54,7 @@ public abstract class AbstractPage {
        try {
            wait.until(ExpectedConditions.elementToBeClickable(waitElement));
        }catch (Exception e){
-           System.out.println(waitElement + " not able to wait until this element");
+           System.out.println( " Not able to wait until this element");
            Assert.fail();
        }
     }
@@ -60,6 +63,7 @@ public abstract class AbstractPage {
 
         try {
             wait.until(ExpectedConditions.visibilityOf(waitElement));
+            Reporter.log( "Waiting for an element"+waitElement , true);
         }catch (Exception e){
             System.out.println(waitElement + " not able to wait until this element");
             Assert.fail();
@@ -74,11 +78,13 @@ public abstract class AbstractPage {
             waitVisibility(eachElement);
             if(eachElement.getText().equals(value)){
                 result = true;
+                Reporter.log( value +" is displayed");
                 break;
             }
         }
 
         if(result == false){
+            Reporter.log( value +" is not displayed");
            Assert.fail();
         }
 
