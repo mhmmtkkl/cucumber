@@ -1,5 +1,5 @@
 Feature: Creating exam
-  @SmokeTest
+  @SmokeTest1
   Scenario: Exam creation
 
     Given navigate to website

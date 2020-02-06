@@ -10,7 +10,6 @@ import org.openqa.selenium.WebDriver;
 
 public class createCountries {
 
-    private WebDriver driver = Driver.getDriver();
 
     ApplicationPage ap = new ApplicationPage();
     PageCountries pc = new PageCountries();

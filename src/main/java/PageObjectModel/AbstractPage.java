@@ -13,13 +13,29 @@ import java.util.concurrent.ExecutionException;
 
 public abstract class AbstractPage {
 
-    private WebDriver driver ;
+    protected WebDriver driver ;
     private WebDriverWait wait;
 
     public AbstractPage(){
         this.driver = Driver.getDriver();
         wait = new WebDriverWait(driver, 20);
 
+    }
+
+    public void verifyDeletedAbstractClass(List<WebElement> tableList, String value ) throws InterruptedException {
+        Thread.sleep( 2000 );
+        boolean result = false;
+        for(int i =0; i<tableList.size() ; i++){
+            if(tableList.get( i ).getText().trim().equalsIgnoreCase( value )){
+                result = true;
+                break;
+            }
+        }
+        if(result==true){
+            Assert.fail(  );
+        }else{
+            System.out.println(value + " is not displayed");
+        }
     }
 
     public void clickFunction(WebElement elementToClick){

@@ -12,11 +12,10 @@ import java.util.List;
 
 public class PageCountries extends AbstractPage {
 
-    private WebDriver driver;
+
 
     public PageCountries(){
 
-        driver = Driver.getDriver();
         PageFactory.initElements(driver,this);
 
     }

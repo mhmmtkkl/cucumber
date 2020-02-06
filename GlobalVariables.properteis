@@ -1,3 +1,5 @@
 Username:nigeria_tenant_admin
 password:TnvLOl54WxR75vylop2A
 URL:https://test-basqar.mersys.io/
+results:src/test/excelFiles/results.xlsx
+releaseNote:src/test/excelFiles/releaseNote.xlsx

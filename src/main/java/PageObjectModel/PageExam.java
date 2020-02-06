@@ -11,11 +11,10 @@ import java.util.List;
 
 public class PageExam extends AbstractPage{
 
-    private WebDriver driver;
 
     public PageExam(){
 
-        driver = Driver.getDriver();
+
         PageFactory.initElements(driver,this);
 
     }

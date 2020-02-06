@@ -81,4 +81,14 @@ public class examStepDefinition {
         name="exam1";
         pe.verifyExamDeleted(name);
     }
+
+    @Then("^Remove the data \"(.*?)\"$")
+    public void remove_the_data(String name) throws Throwable {
+        ap.deletingElement( name );
+    }
+
+    @Then("^Verify data is removed \"(.*?)\"$")
+    public void verify_data_is_removed(String name) throws Throwable {
+        ap.verifingDeleted( name );
+    }
 }

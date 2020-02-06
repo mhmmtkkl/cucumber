@@ -12,11 +12,8 @@ import java.util.List;
 
 public class ApplicationPage extends AbstractPage {
 
-    private WebDriver driver;
-
     public ApplicationPage(){
 
-        driver = Driver.getDriver();
         PageFactory.initElements(driver,this);
 
     }
@@ -95,6 +92,40 @@ public class ApplicationPage extends AbstractPage {
     @FindBy(xpath = "//span[text()='Save']")
     private WebElement buttonSaveFrame;
 
+    @FindBy(xpath = "//span[text()=' Yes ']")
+    private WebElement buttonYes;
+
+    @FindBy(xpath = "//span[text()='Release Notes']")
+    private WebElement buttonReleaseNotes;
+
+    //  find all is working like driver.findElements
+    @FindAll({
+            @FindBy(xpath="//tbody//tr//td[2]")
+    }  )
+    private List<WebElement> tableListofNames;
+
+    @FindAll({
+            @FindBy(xpath="//ms-delete-button//button")
+    })
+    private List<WebElement> listOfDeleteButtons;
+
+
+    public void nameIsCreated(String value) throws InterruptedException {
+
+        Thread.sleep( 2000 );
+        System.out.println(tableListofNames.size()+"<-------------");
+        verifyCreated( tableListofNames ,value );
+    }
+
+    public void deletingElement(String value){
+        deleteFunctionality( tableListofNames ,listOfDeleteButtons ,value , buttonYes);
+    }
+
+    public void verifingDeleted(String value) throws InterruptedException {
+        verifyDeletedAbstractClass( tableListofNames , value );
+    }
+
+
     public void ClickOnbuttonSaveForm(){
         clickFunction(buttonSaveForm);
     }
@@ -146,7 +177,6 @@ public class ApplicationPage extends AbstractPage {
                 clickFunction(listSetupParameters.get(i));
             }
         }
-
     }
 
     public void clickdropdownSetup(){
@@ -165,7 +195,9 @@ public class ApplicationPage extends AbstractPage {
         clickFunction(buttonCities);
     }
 
-
+    public void clickbuttonReleaseNotes(){
+        clickFunction(buttonReleaseNotes);
+    }
 
 }
 

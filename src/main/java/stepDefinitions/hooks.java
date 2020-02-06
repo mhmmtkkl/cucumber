@@ -21,13 +21,10 @@ public class hooks {
     @Before
     public void beforeClass(){
 
-        driver = Driver.getDriver();
-
         driver.get("https://test-basqar.mersys.io/");
         driver.manage().window().maximize();
 
     }
-
 
     @After
     public static void afterClass(Scenario scenario){
@@ -79,7 +76,7 @@ public class hooks {
 
             }
 
-        Driver.closeDriver();
+//        Driver.closeDriver();
 
     }
 }

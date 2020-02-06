@@ -12,11 +12,7 @@ import java.util.List;
 
 public class pageCity extends AbstractPage {
 
-    private WebDriver driver;
-
-
     public pageCity(){
-        driver = Driver.getDriver();
         PageFactory.initElements(driver,this);
     }
 
