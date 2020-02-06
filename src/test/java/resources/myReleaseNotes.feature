@@ -1,4 +1,5 @@
 Feature: Verify Release Notes
+  @SmokeTest1
   Scenario:  Release Notes
 
     Given navigate to website

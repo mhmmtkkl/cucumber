@@ -1,4 +1,5 @@
 Feature: Create a Country
+  @SmokeTest1
   Scenario:  Country Creating
 
     Given navigate to website

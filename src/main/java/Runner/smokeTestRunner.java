@@ -12,7 +12,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
                 "json:target/cucumber.json",
                 "rerun:target/rerun.txt"
         },
-        tags = "@SmokeTest",
+        tags = "@SmokeTest1",
         features={"src/test/java/resources"},
         glue={"stepDefinitions"},
         dryRun=false

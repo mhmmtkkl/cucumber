@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import Utilities.Driver;
+import Utilities.ReadProperties;
+import Utilities.excelWrite;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -27,7 +29,7 @@ public class hooks {
     }
 
     @After
-    public static void afterClass(Scenario scenario){
+    public static void afterClass(Scenario scenario) throws IOException {
 
 
             if(scenario.isFailed()) {
@@ -62,6 +64,12 @@ public class hooks {
 
                 dateinFormat = dateinFormat.replace(":", "-");
 
+                int semicolun = FeatureName.indexOf(";");
+
+                FeatureName = FeatureName.substring(semicolun);
+
+                FeatureName = FeatureName.replace(";" , "");
+
                 File DestFile=new File("target/screenShots/"+FeatureName+""+dateinFormat+".png");
 
                 //Copy file at destination
@@ -72,6 +80,7 @@ public class hooks {
                     e.printStackTrace();
                 }
 
+                excelWrite.excelWriteResult("results" , "Sheet1" , scenario);
 
 
             }
